@@ -1,54 +1,764 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>KSM Capital</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <script src="https://unpkg.com/lucide@latest"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rockefeller Capital Management | Trusted Wealth Management</title>
+    <meta name="description" content="Rockefeller Capital Management provides sophisticated wealth management solutions for families, institutions, and entrepreneurs. Over a century of trusted stewardship.">
+    <meta name="keywords" content="wealth management, investment management, trust services, estate planning, family office, fiduciary services">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <style>
+        /* Custom animations and styles */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .bg-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        
+        .group:hover .group-hover-translate {
+            transform: translateX(4px);
+        }
+        
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
-<body class="bg-white text-gray-800">
+<body class="smooth-scroll">
+    <!-- Header -->
+    <header id="header" class="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">R</span>
+                        </div>
+                        <span id="logo-text" class="text-xl font-bold transition-colors text-white">
+                            Rockefeller Capital
+                        </span>
+                    </div>
+                </div>
 
-  <!-- Header -->
-  <header id="header" class="mb-20">
-    <iframe srcdoc="{HEADER}" class="w-full h-32" frameborder="0"></iframe>
-  </header>
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <div class="relative group">
+                        <button id="services-btn" class="flex items-center space-x-1 py-2 transition-colors text-white hover:text-blue-200">
+                            <span>Services</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <a href="#about" id="about-link" class="transition-colors text-white hover:text-blue-200">About</a>
+                    <a href="#team" id="team-link" class="transition-colors text-white hover:text-blue-200">Team</a>
+                    <a href="#insights" id="insights-link" class="transition-colors text-white hover:text-blue-200">Insights</a>
+                    <a href="#contact" id="contact-link" class="transition-colors text-white hover:text-blue-200">Contact</a>
+                    <button class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors">
+                        Client Portal
+                    </button>
+                </nav>
 
-  <!-- Hero -->
-  <section id="hero" class="mb-20">
-    <iframe srcdoc="{HERO}" class="w-full min-h-[90vh]" frameborder="0"></iframe>
-  </section>
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md transition-colors text-white hover:text-blue-200">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
 
-  <!-- Services -->
-  <section id="services" class="mb-20">
-    <iframe srcdoc="{SERVICES}" class="w-full h-[150vh]" frameborder="0"></iframe>
-  </section>
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="md:hidden bg-white shadow-lg rounded-lg mt-2 p-4 hidden">
+                <nav class="flex flex-col space-y-4">
+                    <a href="#services" class="text-gray-700 hover:text-blue-600">Services</a>
+                    <a href="#about" class="text-gray-700 hover:text-blue-600">About</a>
+                    <a href="#team" class="text-gray-700 hover:text-blue-600">Team</a>
+                    <a href="#insights" class="text-gray-700 hover:text-blue-600">Insights</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600">Contact</a>
+                    <button class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors w-full">
+                        Client Portal
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
 
-  <!-- About -->
-  <section id="about" class="mb-20">
-    <iframe srcdoc="{ABOUT}" class="w-full h-[130vh]" frameborder="0"></iframe>
-  </section>
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 bg-pattern opacity-20"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center fade-in-up">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                    Exceptional Wealth Management
+                    <span class="block text-blue-400">Built on Legacy</span>
+                </h1>
+                <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    For over a century, we've been trusted advisors to families, institutions, and entrepreneurs. 
+                    Our comprehensive approach combines time-tested principles with innovative strategies.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+                    <button class="bg-blue-600 text-white px-8 py-4 rounded-md text-lg font-semibold hover:bg-blue-700 transition-all duration-300 flex items-center justify-center group">
+                        Discover Our Services
+                        <i data-lucide="arrow-right" class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                    <button class="border-2 border-white text-white px-8 py-4 rounded-md text-lg font-semibold hover:bg-white hover:text-slate-900 transition-all duration-300">
+                        Schedule Consultation
+                    </button>
+                </div>
+            </div>
 
-  <!-- Team -->
-  <section id="team" class="mb-20">
-    <iframe srcdoc="{TEAM}" class="w-full h-[150vh]" frameborder="0"></iframe>
-  </section>
+            <!-- Key Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                <div class="text-center group">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 hover-scale">
+                        <i data-lucide="trending-up" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">$45B+</h3>
+                    <p class="text-gray-300">Assets Under Management</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 hover-scale">
+                        <i data-lucide="users" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">1,800+</h3>
+                    <p class="text-gray-300">Client Families</p>
+                </div>
+                <div class="text-center group">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 hover-scale">
+                        <i data-lucide="shield" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">100+</h3>
+                    <p class="text-gray-300">Years of Trust</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Insights -->
-  <section id="insights" class="mb-20">
-    <iframe srcdoc="{INSIGHTS}" class="w-full h-[150vh]" frameborder="0"></iframe>
-  </section>
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                    Comprehensive Wealth Solutions
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Our integrated approach combines investment excellence with personalized service, 
+                    delivering sophisticated solutions for complex financial needs.
+                </p>
+            </div>
 
-  <!-- Contact -->
-  <section id="contact" class="mb-20">
-    <iframe srcdoc="{CONTACT}" class="w-full h-[150vh]" frameborder="0"></iframe>
-  </section>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Investment Management -->
+                <div class="bg-gray-50 rounded-lg p-8 hover:shadow-lg transition-all duration-300 group">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center hover-scale">
+                            <i data-lucide="pie-chart" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 ml-4">Investment Management</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">Sophisticated portfolio construction and risk management tailored to your unique objectives and risk tolerance.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Custom Asset Allocation
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Alternative Investments
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            ESG Integration
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Tax Optimization
+                        </li>
+                    </ul>
+                </div>
 
-  <!-- Footer -->
-  <footer id="footer">
-    <iframe srcdoc="{FOOTER}" class="w-full h-[80vh]" frameborder="0"></iframe>
-  </footer>
+                <!-- Trust & Estate Planning -->
+                <div class="bg-gray-50 rounded-lg p-8 hover:shadow-lg transition-all duration-300 group">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center hover-scale">
+                            <i data-lucide="building" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 ml-4">Trust & Estate Planning</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">Comprehensive wealth transfer strategies designed to preserve and protect your legacy across generations.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Estate Planning
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Trust Administration
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Charitable Giving
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Family Governance
+                        </li>
+                    </ul>
+                </div>
 
+                <!-- Family Office Services -->
+                <div class="bg-gray-50 rounded-lg p-8 hover:shadow-lg transition-all duration-300 group">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center hover-scale">
+                            <i data-lucide="users" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 ml-4">Family Office Services</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">Holistic wealth management solutions for ultra-high-net-worth families and their complex needs.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Concierge Services
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Investment Office
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Family Education
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Next-Gen Planning
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Fiduciary Services -->
+                <div class="bg-gray-50 rounded-lg p-8 hover:shadow-lg transition-all duration-300 group">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center hover-scale">
+                            <i data-lucide="shield" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 ml-4">Fiduciary Services</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">Independent fiduciary oversight and governance solutions for institutional and private clients.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Fiduciary Oversight
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Risk Management
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Compliance Solutions
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Board Advisory
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Private Markets -->
+                <div class="bg-gray-50 rounded-lg p-8 hover:shadow-lg transition-all duration-300 group">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center hover-scale">
+                            <i data-lucide="trending-up" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 ml-4">Private Markets</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">Access to exclusive private investment opportunities across real estate, private equity, and hedge funds.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Private Equity
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Real Estate
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Hedge Funds
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Direct Investments
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Business Services -->
+                <div class="bg-gray-50 rounded-lg p-8 hover:shadow-lg transition-all duration-300 group">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center hover-scale">
+                            <i data-lucide="briefcase" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 ml-4">Business Services</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">Strategic advisory services for business owners, executives, and entrepreneurs.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Executive Services
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Business Valuation
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Succession Planning
+                        </li>
+                        <li class="flex items-center text-sm text-gray-700">
+                            <div class="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                            Liquidity Events
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">
+                        A Century of Trusted Stewardship
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Founded on the principles of integrity, innovation, and excellence, Rockefeller Capital Management 
+                        has been a trusted partner to families, institutions, and entrepreneurs for over a century.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Our heritage is built on a foundation of fiduciary responsibility and a deep understanding 
+                        of the complexities that come with significant wealth. We combine time-tested investment 
+                        principles with innovative strategies to deliver comprehensive solutions.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors">
+                            Our History
+                        </button>
+                        <button class="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-md hover:bg-blue-600 hover:text-white transition-colors">
+                            Leadership Team
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <!-- Excellence -->
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                            <i data-lucide="award" class="w-6 h-6 text-blue-600"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Excellence</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Unwavering commitment to delivering superior results and exceptional client service.</p>
+                    </div>
+
+                    <!-- Global Reach -->
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                            <i data-lucide="globe" class="w-6 h-6 text-blue-600"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Global Reach</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Worldwide presence with local expertise to serve clients across multiple jurisdictions.</p>
+                    </div>
+
+                    <!-- Long-term Focus -->
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                            <i data-lucide="clock" class="w-6 h-6 text-blue-600"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Long-term Focus</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Patient capital approach focused on sustainable wealth creation over generations.</p>
+                    </div>
+
+                    <!-- Client-Centric -->
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                            <i data-lucide="target" class="w-6 h-6 text-blue-600"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Client-Centric</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Tailored solutions designed around each client's unique goals and circumstances.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                    Get In Touch
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Ready to discuss your wealth management needs? Our team is here to provide 
+                    personalized guidance and sophisticated solutions.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Contact Form -->
+                <div class="bg-gray-50 rounded-lg p-8">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">Send Us a Message</h3>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Full Name *
+                                </label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                />
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Email Address *
+                                </label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    required
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                />
+                            </div>
+                        </div>
+                        <div>
+                            <label for="company" class="block text-sm font-medium text-gray-700 mb-2">
+                                Company/Organization
+                            </label>
+                            <input
+                                type="text"
+                                id="company"
+                                name="company"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            />
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
+                                Message *
+                            </label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="5"
+                                required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                placeholder="Tell us about your wealth management needs..."
+                            ></textarea>
+                        </div>
+                        <button
+                            type="submit"
+                            class="w-full bg-blue-600 text-white py-3 px-6 rounded-md hover:bg-blue-700 transition-colors font-medium"
+                        >
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Office Locations -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-6">Our Offices</h3>
+                    <div class="space-y-6">
+                        <!-- New York -->
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-3">New York</h4>
+                            <div class="space-y-2">
+                                <div class="flex items-start">
+                                    <i data-lucide="map-pin" class="w-5 h-5 text-blue-600 mr-3 mt-0.5"></i>
+                                    <span class="text-gray-600">200 Park Avenue, 31st Floor</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i data-lucide="phone" class="w-5 h-5 text-blue-600 mr-3"></i>
+                                    <span class="text-gray-600">+1 (212) 649-5600</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i data-lucide="mail" class="w-5 h-5 text-blue-600 mr-3"></i>
+                                    <span class="text-gray-600">ny@rockco.com</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Los Angeles -->
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-3">Los Angeles</h4>
+                            <div class="space-y-2">
+                                <div class="flex items-start">
+                                    <i data-lucide="map-pin" class="w-5 h-5 text-blue-600 mr-3 mt-0.5"></i>
+                                    <span class="text-gray-600">333 South Grand Avenue, 28th Floor</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i data-lucide="phone" class="w-5 h-5 text-blue-600 mr-3"></i>
+                                    <span class="text-gray-600">+1 (213) 426-3900</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i data-lucide="mail" class="w-5 h-5 text-blue-600 mr-3"></i>
+                                    <span class="text-gray-600">la@rockco.com</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Boston -->
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-3">Boston</h4>
+                            <div class="space-y-2">
+                                <div class="flex items-start">
+                                    <i data-lucide="map-pin" class="w-5 h-5 text-blue-600 mr-3 mt-0.5"></i>
+                                    <span class="text-gray-600">200 Clarendon Street, 52nd Floor</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i data-lucide="phone" class="w-5 h-5 text-blue-600 mr-3"></i>
+                                    <span class="text-gray-600">+1 (617) 375-3300</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i data-lucide="mail" class="w-5 h-5 text-blue-600 mr-3"></i>
+                                    <span class="text-gray-600">boston@rockco.com</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- London -->
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <h4 class="text-lg font-semibold text-gray-900 mb-3">London</h4>
+                            <div class="space-y-2">
+                                <div class="flex items-start">
+                                    <i data-lucide="map-pin" class="w-5 h-5 text-blue-600 mr-3 mt-0.5"></i>
+                                    <span class="text-gray-600">1 King Street, London EC2V 8AU</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i data-lucide="phone" class="w-5 h-5 text-blue-600 mr-3"></i>
+                                    <span class="text-gray-600">+44 (0) 20 7382 4040</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i data-lucide="mail" class="w-5 h-5 text-blue-600 mr-3"></i>
+                                    <span class="text-gray-600">london@rockco.com</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 bg-blue-50 rounded-lg p-6">
+                        <div class="flex items-center mb-3">
+                            <i data-lucide="clock" class="w-5 h-5 text-blue-600 mr-3"></i>
+                            <h4 class="text-lg font-semibold text-gray-900">Business Hours</h4>
+                        </div>
+                        <div class="text-gray-600 space-y-1">
+                            <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+                            <p>Saturday: 9:00 AM - 1:00 PM</p>
+                            <p>Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">R</span>
+                        </div>
+                        <span class="text-xl font-bold ml-2">Rockefeller Capital</span>
+                    </div>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Trusted wealth management partner for over a century, providing sophisticated solutions 
+                        for families, institutions, and entrepreneurs worldwide.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Investment Management</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Trust & Estate Planning</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Family Office Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Fiduciary Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Private Markets</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Business Services</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Company</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Leadership</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">News & Media</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Investor Relations</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">ESG</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">Contact</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-blue-600 mr-3"></i>
+                            <span class="text-gray-400">200 Park Avenue<br />New York, NY 10166</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-lucide="phone" class="w-5 h-5 text-blue-600 mr-3"></i>
+                            <span class="text-gray-400">+1 (212) 649-5600</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-lucide="mail" class="w-5 h-5 text-blue-600 mr-3"></i>
+                            <span class="text-gray-400">info@rockco.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm">
+                        © 2024 Rockefeller Capital Management. All rights reserved.
+                    </p>
+                    <div class="flex space-x-6 mt-4 md:mt-0">
+                        <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Cookie Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Disclosures</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            const logoText = document.getElementById('logo-text');
+            const navLinks = ['services-btn', 'about-link', 'team-link', 'insights-link', 'contact-link'];
+            
+            if (window.scrollY > 50) {
+                header.classList.remove('bg-transparent');
+                header.classList.add('bg-white', 'shadow-lg');
+                logoText.classList.remove('text-white');
+                logoText.classList.add('text-gray-900');
+                
+                navLinks.forEach(linkId => {
+                    const link = document.getElementById(linkId);
+                    if (link) {
+                        link.classList.remove('text-white', 'hover:text-blue-200');
+                        link.classList.add('text-gray-700', 'hover:text-blue-600');
+                    }
+                });
+            } else {
+                header.classList.remove('bg-white', 'shadow-lg');
+                header.classList.add('bg-transparent');
+                logoText.classList.remove('text-gray-900');
+                logoText.classList.add('text-white');
+                
+                navLinks.forEach(linkId => {
+                    const link = document.getElementById(linkId);
+                    if (link) {
+                        link.classList.remove('text-gray-700', 'hover:text-blue-600');
+                        link.classList.add('text-white', 'hover:text-blue-200');
+                    }
+                });
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let isMenuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', function() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenuBtn.innerHTML = '<i data-lucide="x" class="w-6 h-6"></i>';
+            } else {
+                mobileMenu.classList.add('hidden');
+                mobileMenuBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+            }
+            lucide.createIcons();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+        });
+    </script>
 </body>
 </html>
