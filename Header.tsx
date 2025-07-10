@@ -22,9 +22,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-sm">R</span>
-              </div>
+              <img src="/logo.png" alt="Logo" className="w-10 h-10 object-contain" />
               <span className={`text-xl font-bold transition-colors ${
                 isScrolled ? 'text-gray-900' : 'text-white'
               }`}>
